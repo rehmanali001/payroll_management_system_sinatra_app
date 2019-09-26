@@ -1,4 +1,7 @@
-class EmployeesController < ApplicationController 
+class EmployeesController < ApplicationController
 
-
-end 
+  get '/employees' do
+    @employees = Employee.all
+    erb :'/employees/employees'
+  end
+end

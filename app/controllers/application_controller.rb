@@ -1,5 +1,5 @@
 require './config/environment'
-#require 'sinatra/flash'
+#require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
   configure do
@@ -14,10 +14,10 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
-    def current_user(session) 
+    def current_user(session)
       @user = User.find_by_id(session[:user_id])
     end
-  
+
     def is_logged_in?(session)
       !!session[:user_id]
     end
