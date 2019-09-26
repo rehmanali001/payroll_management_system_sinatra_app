@@ -1,22 +1,32 @@
 class UsersController < ApplicationController
 
     get '/signup' do
+      if is_logged_in?(session)
+        flash[:message] = "You're already logged in!"
+        redirect '/employees'
+      else
         erb :"users/signup"
+      end
     end
 
     post '/signup' do
         @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
   #      binding.pry
-       if @user.save
-          redirect '/login'
+        if @user.id == nil
+          flash[:message] = "Invalid user credentials. Please try again."
+          redirect '/signup'
        else
-        redirect '/'
+         session[:user_id] = @user.id
+        redirect '/login'
     end
     end
 
     get '/login' do
-
-        erb :"users/login"
+        if is_logged_in?(session)
+          flash[:message] = "You're already logged in"
+          redirect '/employees'
+        end
+          erb :'users/login'
     end
 
     post '/login' do
@@ -25,7 +35,8 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect '/employees'
         else
-        redirect '/signup'
+        flash[:message] = "Incorrect login credentials. Please try again."
+        redirect '/login'
       end
     end
 
