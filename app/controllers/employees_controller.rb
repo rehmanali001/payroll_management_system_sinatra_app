@@ -12,11 +12,12 @@ class EmployeesController < ApplicationController
 
     post '/employees' do
       @user = current_user(session)
-      @employee = Employee.create(params)
-    if params.empty?
-      erb :'/employees/employees'
-    else
+#    binding.pry
+    if params[:name] == "" || params[:wage] == "" || params[:hours] == ""
       redirect '/employees/new'
+    else
+      @employee = Employee.create(params)
+      redirect '/employees'
     end
     end
 
@@ -52,7 +53,7 @@ class EmployeesController < ApplicationController
 
     patch '/employees/:id' do
       @employee = Employee.find(params[:id])
-    if params.empty?
+      if params[:name] == "" || params[:wage] == "" || params[:hours] == ""
         redirect "/employees/#{@employee.id}/edit"
     end
     if current_user(session).id == @user.id

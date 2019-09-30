@@ -1,13 +1,12 @@
 <h1>Welcome, <%= @user.username %></h1>
-<h3>Here are your employees:</h3>
+<h3>Here are the list of your employees:</h3>
 <ul>
 <% @employees.each do |emp| %>
   <li>
     <%= emp.name %>
     <%= emp.wage %>
-    <%= emp.hours%><a
-  class="button" href="/employees/<%= emp.id %>" style
-  ="padding-right: 25px">See Employee</a>
+    <%= emp.hours%>
+    <aclass="button" href="/employees/<%= emp.id %>" style="padding-right: 25px">See Employee</a>
   </li>
 <% end %>
 </ul>
