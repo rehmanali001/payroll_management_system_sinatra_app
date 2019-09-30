@@ -1,12 +1,15 @@
 <% if is_logged_in?(session) %>
 <h1>Create New Employee</h1>
   <form action='/employees' method="post">
-    Name:
+    <label name="name" style="font-weight: bold;">Name: </label>
     <input type="text" name="name"><br><br>
-    Wage:
+
+    <label name="wage" style="font-weight: bold;">Wage: </label>
     <input type="text" name="wage"><br><br>
-    Hours:
+
+    <label name="hours" style="font-weight: bold;">Hours: </label>
     <input type="text" name="hours">    <br><br>
+
     <input type="submit" value="Submit" id="submit">
    </form>
 

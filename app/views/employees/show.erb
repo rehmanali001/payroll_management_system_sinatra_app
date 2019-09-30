@@ -1,7 +1,8 @@
 
-<h3>Employee Name: <%= @employee.name %></h3>
-<h3>Employee Wage: <%= @employee.wage %></h3>
-<h3>Employee Hours: <%= @employee.hours %></h3>
+<h3>Employee Name: </h3><p style="position: relative; top: -37px; left: 150px;"><%= @employee.name %></p>
+<h3>Employee Wage: </h3><p style="position: relative; top: -37px; left: 150px;"><%= @employee.wage %></p>
+<h3>Employee Hours: </h3><p style="position: relative; top: -37px; left: 150px;"><%= @employee.hours %></p>
+
 
 <form action="/employees/<%= @employee.id %>/edit" method="get">
   <button type="submit" id="Edit Employee">Edit Employee</button>
@@ -9,5 +10,5 @@
 
 <form action="/employees/<%= @employee.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <button type="submit" id="Delete Tweet">Delete Employee</button>
+  <button type="submit" id="Delete Tweet" style="position: relative; top: -21px; left: 120px;">Delete Employee</button>
 </form>
