@@ -1,7 +1,8 @@
-
-<h3>Employee Name: </h3><p style="position: relative; top: -37px; left: 150px;"><%= @employee.name %></p>
-<h3>Employee Wage: </h3><p style="position: relative; top: -37px; left: 150px;"><%= @employee.wage %></p>
-<h3>Employee Hours: </h3><p style="position: relative; top: -37px; left: 150px;"><%= @employee.hours %></p>
+<h1>Edit or Delete Employee</h1>
+<br>
+<h3>Employee Name: <p style="display: inline; font-weight: normal;"><%= @employee.name %></p></h3>
+<h3>Employee Wage: <p style="display: inline; font-weight: normal;"><%= @employee.wage %></p></h3>
+<h3>Employee Hours: <p style="display: inline; font-weight: normal;"><%= @employee.hours %></p></h3>
 
 
 <form action="/employees/<%= @employee.id %>/edit" method="get">

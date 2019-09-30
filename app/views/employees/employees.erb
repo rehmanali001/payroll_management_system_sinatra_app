@@ -1,15 +1,18 @@
-<h1>Welcome, <%= @user.username %></h1>
+<h1>Welcome, <%= @user.username %></h1><br>
 <h3>Here are the list of your employees:</h3>
-<ul>
+<ol>
 <% @employees.each do |emp| %>
   <li>
-    <%= emp.name %>
-    <%= emp.wage %>
-    <%= emp.hours%>
-    <aclass="button" href="/employees/<%= emp.id %>" style="padding-right: 25px">See Employee</a>
+    <h4>Employee Name: <p style="display: inline; font-weight: normal;"><%= emp.name %></p></h4>
+    <h4>Wage: <p style="display: inline; font-weight: normal;"><%= emp.wage %></p></h4>
+    <h4>Hours: <p style="display: inline; font-weight: normal;"><%= emp.hours %></p></h4>
+
+    <a class="button" href="/employees/<%= emp.id %>" style="padding-right: 25px">Check Employee</a>
+
   </li>
+  <br>
 <% end %>
-</ul>
+</ol>
 
 <a class="submit" href="/employees/new"><button>New Employee</button></a>
 
