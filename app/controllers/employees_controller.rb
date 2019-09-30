@@ -12,15 +12,14 @@ class EmployeesController < ApplicationController
 
     post '/employees' do
       @user = current_user(session)
-    if !params.empty?
-      @user.employees << Employee.create(params)
-      @employee = Employee.last
-
-      erb :"/employees/edit"
+      @employee = Employee.create(params)
+    if params.empty?
+      erb :'/employees/employees'
     else
       redirect '/employees/new'
     end
     end
+
 
   get '/employees/new' do
       if is_logged_in?(session)
