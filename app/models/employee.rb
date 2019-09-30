@@ -1,3 +1,4 @@
-class Employee < ActiveRecord::Base 
+class Employee < ActiveRecord::Base
     belongs_to :user
-end 
+    validates_presence_of :name, :hours, :wage
+end

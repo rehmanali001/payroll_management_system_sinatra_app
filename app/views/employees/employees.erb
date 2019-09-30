@@ -1,4 +1,17 @@
-<h1>Welcome! <%current_user(session).username%></h1>
+<h1>Welcome, <%= @user.username %></h1>
+<h3>Here are your employees:</h3>
+<ul>
+<% @employees.each do |emp| %>
+  <li>
+    <%= emp.name %>
+    <%= emp.wage %>
+    <%= emp.hours%><a
+  class="button" href="/employees/<%= emp.id %>" style
+  ="padding-right: 25px">See Employee</a>
+  </li>
+<% end %>
+</ul>
 
+<a class="submit" href="/employees/new"><button>New Employee</button></a>
 
 <a class="submit" href="/logout"><button>Log Out</button></a>

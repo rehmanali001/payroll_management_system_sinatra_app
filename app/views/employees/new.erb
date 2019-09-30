@@ -1,0 +1,16 @@
+<% if is_logged_in?(session) %>
+<h1>Create New Employee</h1>
+  <form action='/employees' method="post">
+    Name:
+    <input type="text" name="name"><br><br>
+    Wage:
+    <input type="text" name="wage"><br><br>
+    Hours:
+    <input type="text" name="hours">    <br><br>
+    <input type="submit" value="Submit" id="submit">
+   </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to Make Changes </h1>
+      <%= redirect "/login" %>
+  <% end %>

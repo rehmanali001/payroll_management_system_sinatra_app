@@ -1,0 +1,13 @@
+
+<h3>Employee Name: <%= @employee.name %></h3>
+<h3>Employee Wage: <%= @employee.wage %></h3>
+<h3>Employee Hours: <%= @employee.hours %></h3>
+
+<form action="/employees/<%= @employee.id %>/edit" method="get">
+  <button type="submit" id="Edit Employee">Edit Employee</button>
+</form>
+
+<form action="/employees/<%= @employee.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <button type="submit" id="Delete Tweet">Delete Employee</button>
+</form>

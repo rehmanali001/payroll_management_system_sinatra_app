@@ -1,0 +1,20 @@
+<% if is_logged_in?(session) %>
+  <form action='/employees/<%= @employee.id %>' method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+    <h2>Edit Your Employee:</h2>
+    Name:
+    <input type="text" name="name" value="<%= @employee.name %>"><br>
+    Wage:
+    <input type="text" name="wage" value="<%= @employee.wage %>"><br>
+    Hours:
+    <input type="text" name="hours" value="<%= @employee.hours %>"><br>
+    <br>
+
+    <button type="submit" value="submit" id="Edit Employee">Edit Employee</button>
+
+   </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to Make Changes </h1>
+      <%= redirect "/login" %>
+  <% end %>
