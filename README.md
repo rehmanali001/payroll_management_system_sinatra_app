@@ -1,8 +1,8 @@
 # Payroll Management System
 
-This MVC Sinatra web application stores a managers employees. This app allows the user to sign up, log in and log out. Users are able to create, update, delete as well as view all the employees in one place.
+This MVC Sinatra web application stores a users' employees. This app allows the user to sign up, log in and log out. Users are able to create, update, delete as well as view all the employees in one place.
 
-##Installation
+## Installation
 
 To use this app, clone down the repository in terminal:
 
