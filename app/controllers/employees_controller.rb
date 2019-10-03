@@ -62,7 +62,7 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
       if @employees && @employees.user == current_user(session)
       if  @employee.update(name: params[:name], wage: params[:wage], hours: params[:hours])
-        redirect to '/employees/#{employees.id}/edit'
+        redirect to '/employees/#{employees.id}'
       else
         redirect to '/employees/#{@employee.id}/edit'
       end
