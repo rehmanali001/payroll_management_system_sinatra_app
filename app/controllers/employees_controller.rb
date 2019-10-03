@@ -44,35 +44,45 @@ class EmployeesController < ApplicationController
     get '/employees/:id/edit' do
       if is_logged_in?(session)
         @employee = Employee.find(params[:id])
-
+        if @employee && @employee.user == current_user(session)
         erb :"employees/edit"
       else
-      redirect "/login"
+      redirect "/employees"
     end
+    else
+      redirect to '/login'
     end
+  end
 
     patch '/employees/:id' do
-      @employee = Employee.find(params[:id])
+      if is_logged_in?(session)
       if params[:name] == "" || params[:wage] == "" || params[:hours] == ""
         redirect "/employees/#{@employee.id}/edit"
-    end
-    if current_user(session).id == @user.id
-      @employee.update(name: params[:name])
-      @employee.update(wage: params[:wage])
-      @employee.update(hours: params[:hours])
-
+    else
+      @employee = Employee.find(params[:id])
+      if @employees && @employees.user == current_user(session)
+      if  @employee.update(name: params[:name], wage: params[:wage], hours: params[:hours])
+        redirect to '/employees/#{employees.id}/edit'
+      else
+        redirect to '/employees/#{@employee.id}/edit'
+      end
+    else
       redirect "/employees"
     end
     end
+  else
+    redirect to '/login'
+  end
+  end
 
 delete '/employees/:id' do
   @employee = Employee.find(params[:id])
   # binding.pry
-  if current_user(session).id == @user.id
+  if @employees && @employees.user == current_user(session)
     @employee.destroy
     redirect "/employees"
   else
-    redirect "/employees"
+    redirect "/login"
   end
   end
-end
+  end
