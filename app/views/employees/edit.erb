@@ -1,4 +1,4 @@
-<% if is_logged_in?(session) %>
+<% if is_logged_in? %>
   <form action='/employees/<%= @employee.id %>' method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
     <h2>Edit Your Employee:</h2>

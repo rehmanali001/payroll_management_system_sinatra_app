@@ -4,6 +4,7 @@
 <h3>Employee Wage: <p style="display: inline; font-weight: normal;"><%= @employee.wage %></p></h3>
 <h3>Employee Hours: <p style="display: inline; font-weight: normal;"><%= @employee.hours %></p></h3>
 
+<% if @employee.user == current_user.id %>
 
 <form action="/employees/<%= @employee.id %>/edit" method="get">
   <button type="submit" id="Edit Employee">Edit Employee</button>
@@ -13,3 +14,5 @@
   <input id="hidden" type="hidden" name="_method" value="delete">
   <button type="submit" id="Delete Tweet" style="position: relative; top: -21px; left: 120px;">Delete Employee</button>
 </form>
+
+<%end%>

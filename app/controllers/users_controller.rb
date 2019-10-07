@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     get '/signup' do
-      if is_logged_in?(session)
+      if is_logged_in?
         redirect '/employees'
       else
         erb :"users/signup"
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
-        if is_logged_in?(session)
+        if is_logged_in?
           redirect '/employees'
         end
           erb :'users/login'
