@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
 
   get '/employees' do
     if is_logged_in?
-      @user = current_user
+      current_user
       @employees = Employee.all
       erb :'/employees/employees'
     else
@@ -11,12 +11,13 @@ class EmployeesController < ApplicationController
     end
 
     post '/employees' do
-      binding.pry
-      @user = current_user
     if params[:name] == "" || params[:wage] == "" || params[:hours] == ""
       redirect '/employees/new'
     else
+  #  binding.pry
       @employee = Employee.create(params)
+      @employee.user_id = current_user.id
+      @employee.save
       redirect '/employees'
     end
     end
@@ -25,7 +26,7 @@ class EmployeesController < ApplicationController
 
   get '/employees/new' do
     if is_logged_in?
-      @user = current_user
+      current_user
       erb :"/employees/new"
     else
       redirect "/login"
@@ -34,8 +35,8 @@ class EmployeesController < ApplicationController
 
   get '/employees/:id' do
     if is_logged_in?
+      current_user
       @employee = Employee.find(params[:id])
-
       erb :"employees/show"
     else
       redirect "/login"

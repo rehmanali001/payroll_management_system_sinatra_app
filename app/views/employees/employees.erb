@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @user.username %></h1><br>
+<h1>Welcome, <%= current_user.username %></h1><br>
 <h3>Here are the list of your employees:</h3>
 <ol>
 <% @employees.each do |emp| %>
