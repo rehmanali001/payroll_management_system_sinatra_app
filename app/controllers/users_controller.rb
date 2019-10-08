@@ -40,4 +40,9 @@ class UsersController < ApplicationController
         session.clear
         redirect '/'
     end
+
+    get '/users/show' do
+      @employee = Employee.all
+      erb :'/users/show'
+    end
 end
