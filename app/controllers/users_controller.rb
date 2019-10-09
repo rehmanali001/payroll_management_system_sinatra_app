@@ -11,12 +11,12 @@ class UsersController < ApplicationController
     post '/signup' do
         @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
   #      binding.pry
-        if @user.id == nil
-          redirect '/signup'
-       else
+      if @user.id == nil
+        redirect '/signup'
+      else
          session[:user_id] = @user.id
         redirect '/login'
-    end
+      end
     end
 
     get '/login' do
@@ -27,12 +27,12 @@ class UsersController < ApplicationController
     end
 
     post '/login' do
+      if is_logged_in?
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect '/employees'
-        else
-        redirect '/login'
+        end
       end
     end
 
