@@ -41,8 +41,10 @@ class UsersController < ApplicationController
         redirect '/'
     end
 
-    get '/users/show' do
-      @employee = Employee.all
+    get '/users/:id' do
+      @user = User.find(params[:id])
+      @employees = @user.employees
       erb :'/users/show'
+
     end
 end

@@ -9,8 +9,7 @@
     <h4>Manager: <p style="display: inline; font-weight: normal;"><%=emp.user.username%></p></h4>
 
     <a class="button" href="/employees/<%= emp.id %>" style="padding-right: 25px">Change Employee</a>
-    <a class="button" href="/users/show" style="padding-right: 25px">Check Employee</a>
-
+    <a class="button" href="/users/<%=emp.user.id%>" style="padding-right: 25px">Check Employee</a>
   </li>
   <br>
 <% end %>

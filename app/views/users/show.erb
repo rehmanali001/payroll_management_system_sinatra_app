@@ -1,7 +1,7 @@
 <h1>Here is the list of your Employees</h1>
 
 <ol>
-<% @employee.each do |emp| %>
+<% @employees.each do |emp|%>
   <li>
     <h4>Employee Name: <p style="display: inline; font-weight: normal;"><%= emp.name %></p></h4>
     <h4>Wage: <p style="display: inline; font-weight: normal;"><%= emp.wage %></p></h4>
@@ -10,6 +10,7 @@
 
   </li>
   <br>
-<% end %>
+  <% end %>
 </ol>
+
 <a class="submit" href="/employees"><button>Home</button></a>

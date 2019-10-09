@@ -14,12 +14,11 @@ class EmployeesController < ApplicationController
     if params[:name] == "" || params[:wage] == "" || params[:hours] == ""
       redirect '/employees/new'
     else
-  #  binding.pry
       @employee = Employee.create(params)
       @employee.user_id = current_user.id
       @employee.save
       redirect '/employees'
-    end
+      end
     end
 
 
