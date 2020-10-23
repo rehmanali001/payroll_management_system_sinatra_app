@@ -13,7 +13,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'rack-flash3'
 gem 'bigdecimal', '1.3.5'
-
+gem 'nokogiri'
 group :test do
   gem 'rspec'
   gem 'capybara'
