@@ -49,7 +49,7 @@ GEM
     minitest (5.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.13.1-x86_64-linux)
+    nokogiri (1.13.2-x86_64-linux)
       racc (~> 1.4)
     pry (0.14.1)
       coderay (~> 1.1)
